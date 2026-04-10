@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Two Tier App</title>
+</head>
+<body>
+  <h1>Frontend (Nginx)</h1>
+
+  <button onclick="callAPI()">Call Backend API</button>
+
+  <p id="response"></p>
+
+  <script>
+    async function callAPI() {
+      try {
+        const res = await fetch("/api");
+        const data = await res.json();
+        document.getElementById("response").innerText = data.message;
+      } catch (err) {
+        document.getElementById("response").innerText = "Error calling backend";
+      }
+    }
+  </script>
+</body>
+</html>
